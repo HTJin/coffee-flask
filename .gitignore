@@ -2,3 +2,6 @@
 venv/
 __pycache__/
 a
+/coffee_env
+/.gitignore
+/.vscode
