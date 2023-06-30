@@ -51,6 +51,7 @@ class Coffee(db.Model):
     brew_method = db.Column(db.String(150))
     roaster = db.Column(db.String(50))
     date_created = db.Column(db.DateTime, default=datetime.utcnow(), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
         return f"<Coffee {self.id} | {self.name} | {self.price}>"

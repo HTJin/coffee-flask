@@ -16,7 +16,7 @@ def register():
         email = form.email.data
         password = form.password.data
 
-        user_check = db.session.execute(db.select(User).where(User.username == username | User.email == email)).scalars().all()
+        user_check = db.session.execute(db.select(User).where((User.username == username) | (User.email == email))).scalars().all()
         if user_check:
             flash('That username and/or email address is already registered', 'danger')
             return redirect(url_for('register'))
