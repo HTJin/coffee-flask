@@ -5,7 +5,7 @@ from .forms import RegisterForm, LoginForm, CoffeeForm
 from .models import User, Coffee
 
 @app.route('/')
-def home():
+def index():
     return render_template('index.html')
 
 @app.route('/register', methods=['GET', 'POST'])

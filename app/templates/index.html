@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Coffee Flask</title>
-  </head>
-  <body class="bg-sky-800">
-    <nav class="flex justify-center items-center gap-12 h-16 bg-emerald-900">
-      <a class="text-emerald-300" href="">Home</a>
-      <a class="text-emerald-300" href="">Register</a>
-      <a class="text-emerald-300" href="">Login</a>
-    </nav>
-  </body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block header %}
+    <h1>Bean Stock</h1>
+    {% if current_user.is_authenticated %}
+        <h3>Welcome {{ current_user.username }}!</h3>
+    {% else %}
+        <h3>You're not logged in. Please Register or Log in.</h3>
+    {% endif %}
+{% endblock %}
+
+
+{% endblock %}
