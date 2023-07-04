@@ -38,6 +38,13 @@ class User(db.Model, UserMixin):
         self.token_expiration = now - timedelta(seconds=1)
         db.session.commit()
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email
+        }
+
 @login.user_loader
 def get_user(user_id):
     return db.session.get(User, user_id)
@@ -57,3 +64,17 @@ class Coffee(db.Model):
 
     def __repr__(self):
         return f"<Coffee {self.id} | {self.name} | {self.price}>"
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'coffee_type': self.coffee_type,
+            'price': self.price,
+            'description': self.description,
+            'rating': self.rating,
+            'brew_method': self.brew_method,
+            'roaster': self.roaster,
+            'image_url': self.image_url,
+            'date_created': self.date_created
+        }
