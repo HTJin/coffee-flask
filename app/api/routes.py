@@ -77,7 +77,7 @@ def create_coffee():
     image_url = get_images(name, coffee_type, roaster, brew_method, description)
     user = token_auth.current_user()
 
-    new_coffee = Coffee(name=name, coffee_type=coffee_type, price=price, description=description, rating=rating, brew_method=brew_method, roaster=roaster, user_id=user.id, image_url=image_url, brewer=user.username)
+    new_coffee = Coffee(name=name, coffee_type=coffee_type, price=price, description=description, rating=rating, brew_method=brew_method, roaster=roaster, user_id=user.id, image_url=image_url)
     db.session.add(new_coffee)
     db.session.commit()
     return new_coffee.to_dict()
